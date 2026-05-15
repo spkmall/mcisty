@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCISTY — If You Teach, You Know.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --red: #CC0000;
+  --black: #080808;
+  --off-white: #f0ede6;
+  --gray-dark: #111;
+  --gray-mid: #1c1c1c;
+  --gray-muted: #555;
+  --gray-light: #888;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--off-white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 3rem;
+  background: rgba(8,8,8,0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #1e1e1e;
+}
+.nav-wordmark {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.12em;
+  color: var(--off-white);
+  text-decoration: none;
+}
+.nav-wordmark em { color: var(--red); font-style: normal; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  color: var(--gray-light);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--off-white); }
+.nav-shop {
+  background: var(--red) !important;
+  color: var(--off-white) !important;
+  padding: 0.45rem 1.1rem;
+  border-radius: 2px;
+}
+.nav-shop:hover { background: #a80000 !important; }
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 10rem 2rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-lines {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px);
+  background-size: 100% 72px;
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-flag {
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: up 0.9s 0.15s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(7rem, 22vw, 18rem);
+  line-height: 0.85;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  animation: up 0.9s 0.3s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-name em { color: var(--red); font-style: normal; }
+.hero-sub {
+  margin-top: 2.5rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--gray-light);
+  opacity: 0;
+  animation: up 0.9s 0.5s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-sub strong { color: var(--off-white); font-weight: 500; }
+.hero-tags {
+  margin-top: 1.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gray-muted);
+  opacity: 0;
+  animation: up 0.9s 0.65s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-btns {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  margin-top: 3.5rem;
+  opacity: 0;
+  animation: up 0.9s 0.85s cubic-bezier(.22,1,.36,1) forwards;
+}
+.btn {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.btn-red { background: var(--red); color: var(--off-white); border: 1px solid var(--red); }
+.btn-red:hover { background: #a80000; border-color: #a80000; }
+.btn-out { background: transparent; color: var(--off-white); border: 1px solid #333; }
+.btn-out:hover { border-color: #666; }
+.scroll-hint {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+  opacity: 0; animation: up 0.9s 1.2s forwards;
+}
+.scroll-hint span { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-muted); }
+.scroll-bar { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--gray-muted), transparent); animation: pulse 2.2s ease-in-out infinite; }
+
+.banner-wrap {
+  width: 100%;
+  border-top: 1px solid #1e1e1e;
+  border-bottom: 1px solid #1e1e1e;
+  overflow: hidden;
+  background: #0d0d0d;
+}
+.banner-wrap img { width: 100%; display: block; filter: brightness(0.93) contrast(1.04); transition: filter 0.4s; }
+.banner-wrap img:hover { filter: brightness(1) contrast(1.05); }
+
+.statement {
+  max-width: 1100px; margin: 0 auto; padding: 7rem 3rem;
+  display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start;
+  border-bottom: 1px solid #1e1e1e;
+}
+.eyebrow { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-bottom: 0.8rem; }
+.st-left h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 5vw, 4.5rem); line-height: 0.95; }
+.st-right p { color: var(--gray-light); font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.2rem; }
+.st-right p strong { color: var(--off-white); font-weight: 500; }
+
+.coll-wrap { max-width: 1100px; margin: 0 auto; padding: 6rem 3rem; }
+.sec-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1rem; }
+.sec-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 3.8rem); line-height: 1; }
+.coll-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: #1e1e1e; border: 1px solid #1e1e1e; }
+.cc {
+  background: var(--gray-dark); padding: 2.5rem 2rem 2rem;
+  display: flex; flex-direction: column; gap: 1.2rem;
+  position: relative; overflow: hidden; transition: background 0.25s;
+}
+.cc:hover { background: #161616; }
+.cc::after { content:''; position:absolute; left:0; top:0; width:3px; height:0; background:var(--red); transition: height 0.35s cubic-bezier(.22,1,.36,1); }
+.cc:hover::after { height: 100%; }
+.cc-num { font-family:'Bebas Neue',sans-serif; font-size:5rem; color:#1e1e1e; line-height:1; position:absolute; top:1rem; right:1.5rem; transition: color 0.25s; }
+.cc:hover .cc-num { color:#242424; }
+.cc-eye { font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--red); }
+.cc-title { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; line-height:1.05; }
+.cc-desc { font-size:0.9rem; color:var(--gray-light); line-height:1.75; flex:1; }
+.cc-link { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; text-decoration:none; color:var(--off-white); transition: gap 0.2s; margin-top:0.5rem; }
+.cc-link:hover { gap:0.7rem; }
+.cc-link .arr { color:var(--red); }
+.cc-soon { font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; border:1px solid #333; color:var(--gray-muted); padding:0.2rem 0.5rem; border-radius:2px; display:inline-block; margin-left:0.5rem; }
+
+.red-rule { width:100%; height:3px; background:var(--red); border:none; }
+
+.staff-wrap { background: var(--gray-dark); border-top: 1px solid #1e1e1e; border-bottom: 1px solid #1e1e1e; }
+.staff-inner {
+  max-width:1100px; margin:0 auto; padding:7rem 3rem;
+  display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;
+}
+.sq-list { display:flex; flex-direction:column; gap:1rem; }
+.sq { border-left:2px solid var(--red); padding:1.1rem 1.5rem; background:rgba(255,255,255,0.025); transition:background 0.2s; }
+.sq:hover { background:rgba(255,255,255,0.045); }
+.sq p { font-family:'Bebas Neue',sans-serif; font-size:1.05rem; letter-spacing:0.06em; line-height:1.3; }
+.dl { margin-top:2.5rem; padding-top:2rem; border-top:1px solid #222; }
+.dl h4 { font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gray-muted); margin-bottom:1rem; }
+.dl-pills { display:flex; flex-wrap:wrap; gap:0.5rem; }
+.pill { font-size:0.72rem; letter-spacing:0.1em; color:var(--gray-light); border:1px solid #2a2a2a; padding:0.3rem 0.7rem; border-radius:2px; }
+
+.photo-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:#111; border-top:1px solid #1e1e1e; border-bottom:1px solid #1e1e1e; overflow:hidden; }
+.ph-cell { aspect-ratio:1; overflow:hidden; background:var(--gray-mid); display:flex; align-items:center; justify-content:center; position:relative; }
+.ph-cell img { width:100%; height:100%; object-fit:cover; filter:grayscale(20%) contrast(1.05); transition:transform 0.5s cubic-bezier(.22,1,.36,1), filter 0.4s; }
+.ph-cell:hover img { transform:scale(1.04); filter:grayscale(0%) contrast(1.1); }
+.ph-empty { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; }
+.ph-empty .ph-lbl { font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:#2a2a2a; }
+
+.iytyk-sec { text-align:center; padding:9rem 2rem 8rem; max-width:900px; margin:0 auto; }
+.iytyk-big { font-family:'Bebas Neue',sans-serif; font-size:clamp(5rem,18vw,13rem); line-height:0.88; letter-spacing:0.06em; }
+.iytyk-decode { font-size:0.72rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gray-muted); margin-top:1.5rem; }
+.iytyk-rule { width:36px; height:2px; background:var(--red); margin:2.5rem auto; }
+.iytyk-body { color:var(--gray-light); font-size:1rem; line-height:1.95; max-width:540px; margin:0 auto 3rem; }
+.iytyk-body strong { color:var(--off-white); font-weight:500; }
+
+footer {
+  border-top:1px solid #1e1e1e; padding:3rem;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;
+}
+.f-logo { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:0.1em; display:block; margin-bottom:0.4rem; }
+.f-logo em { color:var(--red); font-style:normal; }
+.f-sub { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gray-muted); }
+.f-tags { display:flex; gap:1.5rem; flex-wrap:wrap; }
+.f-tag { font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gray-muted); text-decoration:none; transition:color 0.2s; }
+.f-tag:hover { color:var(--off-white); }
+.f-copy { font-size:0.68rem; color:#2e2e2e; letter-spacing:0.06em; }
+
+@keyframes up { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+@keyframes pulse { 0%,100% { opacity:0.3; } 50% { opacity:0.9; } }
+
+@media (max-width:900px) {
+  nav { padding:1rem 1.5rem; }
+  .nav-links { display:none; }
+  .statement { grid-template-columns:1fr; gap:2.5rem; padding:5rem 1.5rem; }
+  .coll-grid { grid-template-columns:1fr; }
+  .staff-inner { grid-template-columns:1fr; gap:3rem; padding:5rem 1.5rem; }
+  .photo-strip { grid-template-columns:repeat(2,1fr); }
+  .coll-wrap { padding:5rem 1.5rem; }
+  footer { padding:2rem 1.5rem; flex-direction:column; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-wordmark">MC<em>I</em>STY</a>
+  <ul class="nav-links">
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#staff">Staff Lounge</a></li>
+    <li><a href="#iytyk">#IYTYK</a></li>
+    <li><a href="https://mcisty.creator-spring.com" target="_blank" class="nav-shop">Shop Now</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <p class="hero-flag">Educational Humor &nbsp;&bull;&nbsp; Humorous Teacher Apparel</p>
+    <h1 class="hero-name">MC<em>I</em>STY</h1>
+    <p class="hero-sub"><strong>Teacher humor that finally says it out loud.</strong></p>
+    <p class="hero-tags">#MCISTY &nbsp;&bull;&nbsp; #IYTYK</p>
+    <div class="hero-btns">
+      <a href="#collections" class="btn btn-red">Shop the Collections</a>
+      <a href="#staff" class="btn btn-out">Enter the Staff Lounge</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-bar"></div>
+    <span>Scroll</span>
+  </div>
+</div>
+
+<!-- BANNER: swap src for your actual file name -->
+<div class="banner-wrap">
+  <img src="Banner_3_Spring_IYTYK.png" alt="MCISTY — Teachers Say It. Wear It. #IYTYK">
+</div>
+
+<div class="statement">
+  <div class="st-left">
+    <p class="eyebrow">Because somebody had to say it.</p>
+    <h2>Teachers<br>Say It.<br>Wear It.</h2>
+  </div>
+  <div class="st-right">
+    <p>MCISTY is <strong>educational humor for people who survived the profession.</strong> Not novelty tees. Not inspirational quotes. Artifacts from the classroom, the conference table, and the parent email thread that should have ended three replies ago.</p>
+    <p>The humor is coded. The audience is specific. Non-teachers are welcome — they'll just have to ask someone.</p>
+    <p style="font-size:0.85rem; color:#333; font-style:italic;">If you teach, you know.</p>
+  </div>
+</div>
+
+<div class="coll-wrap" id="collections">
+  <div class="sec-header">
+    <div>
+      <p class="eyebrow">The Collections</p>
+      <h2 class="sec-title">What We Make</h2>
+    </div>
+    <a href="https://mcisty.creator-spring.com" target="_blank" class="btn btn-out">View All &rarr;</a>
+  </div>
+  <div class="coll-grid">
+
+    <div class="cc">
+      <span class="cc-num">01</span>
+      <span class="cc-eye">The Dictionary Collection</span>
+      <h3 class="cc-title">French. Spanish.<br>Korean. German.<br>Chinese.</h3>
+      <p class="cc-desc">Every language department has a dictionary. Now it has a hoodie. Five languages. One inside joke. Complete series available now.</p>
+      <a href="https://mcisty.creator-spring.com" target="_blank" class="cc-link">Shop the Collection <span class="arr">&rarr;</span></a>
+    </div>
+
+    <div class="cc">
+      <span class="cc-num">02</span>
+      <span class="cc-eye">The Report Card Collection</span>
+      <h3 class="cc-title">What Teachers<br>Really Mean.</h3>
+      <p class="cc-desc">Every comment sounds professional. Every teacher knows what it actually means. Wear the translation. More dropping throughout grading season.</p>
+      <a href="https://mcisty.creator-spring.com" target="_blank" class="cc-link">Shop the Collection <span class="arr">&rarr;</span></a>
+    </div>
+
+    <div class="cc">
+      <span class="cc-num">03</span>
+      <span class="cc-eye">Staff Lounge Wear <span class="cc-soon">Coming Soon</span></span>
+      <h3 class="cc-title">Professionally<br>Worded Emotional<br>Damage.</h3>
+      <p class="cc-desc">Minimalist apparel for conference season, PD days, and the moments when documentation already exists. Black garments. White type. No apologies.</p>
+      <span class="cc-link" style="color:#2a2a2a; cursor:default;">Dropping Soon</span>
+    </div>
+
+  </div>
+</div>
+
+<hr class="red-rule">
+
+<div class="staff-wrap" id="staff">
+  <div class="staff-inner">
+    <div>
+      <p class="eyebrow">Staff Lounge Wear</p>
+      <h2 class="sec-title" style="font-size:clamp(2.5rem,5vw,4rem); margin-bottom:0.5rem;">Professionally<br>Worded Emotional<br>Damage.</h2>
+      <p style="color:var(--red); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:2rem;">First Drop &mdash; The Parent Conference Collection</p>
+      <p style="color:var(--gray-light); font-size:1rem; line-height:1.85; margin-bottom:1rem;">Institutional language. Veteran exhaustion. Statements that only become funny because they sound like they survived three rounds of district approval.</p>
+      <p style="color:var(--gray-light); font-size:1rem; line-height:1.85; margin-bottom:2.5rem;">Small back-neck MCISTY #IYTYK mark. Quiet enough to pass. Specific enough to belong.</p>
+      <a href="https://mcisty.creator-spring.com" target="_blank" class="btn btn-red">Notify Me When It Drops</a>
+      <div class="dl">
+        <h4>Design Language</h4>
+        <div class="dl-pills">
+          <span class="pill">Black garments</span>
+          <span class="pill">White type</span>
+          <span class="pill">No cartoons</span>
+          <span class="pill">No chalkboard fonts</span>
+          <span class="pill">No apologies</span>
+        </div>
+      </div>
+    </div>
+    <div class="sq-list">
+      <div class="sq"><p>Further parental communication is unnecessary.</p></div>
+      <div class="sq"><p>Academic outcomes remain student-dependent.</p></div>
+      <div class="sq"><p>Tell your parents there's nothing they can do about your grade.</p></div>
+      <div class="sq"><p>I can explain it again. I can't understand it for you.</p></div>
+      <div class="sq"><p>Due dates are not decorative.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- PHOTO STRIP: replace ph-empty divs with img tags pointing to your lifestyle shots -->
+<div class="photo-strip">
+  <div class="ph-cell"><div class="ph-empty"><span class="ph-lbl">Asset Needed</span><span class="ph-lbl">Lifestyle 01</span></div></div>
+  <div class="ph-cell"><div class="ph-empty"><span class="ph-lbl">Asset Needed</span><span class="ph-lbl">Lifestyle 02</span></div></div>
+  <div class="ph-cell"><div class="ph-empty"><span class="ph-lbl">Asset Needed</span><span class="ph-lbl">Product Shot</span></div></div>
+  <div class="ph-cell"><div class="ph-empty"><span class="ph-lbl">Asset Needed</span><span class="ph-lbl">Product Shot</span></div></div>
+  <div class="ph-cell"><div class="ph-empty"><span class="ph-lbl">Asset Needed</span><span class="ph-lbl">Lifestyle 03</span></div></div>
+  <div class="ph-cell"><div class="ph-empty"><span class="ph-lbl">Asset Needed</span><span class="ph-lbl">Lifestyle 04</span></div></div>
+</div>
+
+<hr class="red-rule">
+
+<div class="iytyk-sec" id="iytyk">
+  <h2 class="iytyk-big">#IYTYK</h2>
+  <p class="iytyk-decode">If You Teach, You Know.</p>
+  <div class="iytyk-rule"></div>
+  <p class="iytyk-body">MCISTY works because it assumes you already understand. No explanation required. No translation provided. <strong>The humor is the recognition. The belonging is the point.</strong></p>
+  <p class="iytyk-body">Non-teachers won't fully get it. That's not exclusion. That's identity. Every profession develops its shorthand. Teachers never had theirs on a hoodie. Until now.</p>
+  <a href="https://mcisty.creator-spring.com" target="_blank" class="btn btn-red">Enter the Store</a>
+</div>
+
+<footer>
+  <div>
+    <span class="f-logo">MC<em>I</em>STY</span>
+    <span class="f-sub">Educational Humor &bull; Humorous Teacher Apparel</span>
+  </div>
+  <div class="f-tags">
+    <a href="https://instagram.com/mcisty.shop" target="_blank" class="f-tag">Instagram</a>
+    <a href="https://mcisty.creator-spring.com" target="_blank" class="f-tag">Shop</a>
+    <a href="#collections" class="f-tag">Collections</a>
+    <span class="f-tag">#MCISTY</span>
+    <span class="f-tag">#IYTYK</span>
+  </div>
+  <p class="f-copy">&copy; 2026 MCISTY. Because somebody had to say it.</p>
+</footer>
+
+</body>
+</html>

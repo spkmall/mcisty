@@ -229,6 +229,7 @@ nav {
 
 .photo-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:#111; border-top:1px solid #1e1e1e; border-bottom:1px solid #1e1e1e; overflow:hidden; }
 .ph-cell { aspect-ratio:1; overflow:hidden; background:var(--gray-mid); display:flex; align-items:center; justify-content:center; position:relative; }
+.ph-cell a { display:block; width:100%; height:100%; }
 .ph-cell img { width:100%; height:100%; object-fit:cover; filter:grayscale(20%) contrast(1.05); transition:transform 0.5s cubic-bezier(.22,1,.36,1), filter 0.4s; }
 .ph-cell:hover img { transform:scale(1.04); filter:grayscale(0%) contrast(1.1); }
 .ph-empty { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; }
@@ -406,12 +407,12 @@ footer {
 
 <!-- PHOTO STRIP: replace ph-empty divs with img tags pointing to your lifestyle shots -->
 <div class="photo-strip">
-  <div class="ph-cell"><img src="photo1.jpg" alt="Chinese Dictionary — MCISTY"></div>
-  <div class="ph-cell"><img src="photo2.jpg" alt="English Dictionary — MCISTY"></div>
-  <div class="ph-cell"><img src="photo3.jpg" alt="German Dictionary — MCISTY"></div>
-  <div class="ph-cell"><img src="photo4.jpg" alt="Korean Dictionary — MCISTY"></div>
-  <div class="ph-cell"><img src="photo5.jpg" alt="Spanish Dictionary — MCISTY"></div>
-  <div class="ph-cell"><img src="photo6.jpg" alt="French Dictionary — MCISTY"></div>
+  <div class="ph-cell"><a href="https://mcisty.creator-spring.com/listing/ChineseDict" target="_blank" rel="noopener"><img src="photo1.jpg" alt="Chinese Dictionary — MCISTY"></a></div>
+  <div class="ph-cell"><a href="https://mcisty.creator-spring.com/listing/yourdictionary" target="_blank" rel="noopener"><img src="photo2.jpg" alt="English Dictionary — MCISTY"></a></div>
+  <div class="ph-cell"><a href="https://mcisty.creator-spring.com/listing/GermanDict" target="_blank" rel="noopener"><img src="photo3.jpg" alt="German Dictionary — MCISTY"></a></div>
+  <div class="ph-cell"><a href="https://mcisty.creator-spring.com/listing/KoreanDict" target="_blank" rel="noopener"><img src="photo4.jpg" alt="Korean Dictionary — MCISTY"></a></div>
+  <div class="ph-cell"><a href="https://mcisty.creator-spring.com/listing/SpanishDict" target="_blank" rel="noopener"><img src="photo5.jpg" alt="Spanish Dictionary — MCISTY"></a></div>
+  <div class="ph-cell"><a href="https://mcisty.creator-spring.com/listing/PasDictionnaire" target="_blank" rel="noopener"><img src="photo6.jpg" alt="French Dictionary — MCISTY"></a></div>
 </div>
 
 <hr class="red-rule">

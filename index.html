@@ -185,6 +185,29 @@ nav {
 .cc-desc { font-size:0.9rem; color:var(--gray-light); line-height:1.75; flex:1; }
 .cc-link { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; text-decoration:none; color:var(--off-white); transition: gap 0.2s; margin-top:0.5rem; }
 .cc-link:hover { gap:0.7rem; }
+
+.product-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+}
+.product-links a {
+  color: var(--gray-light);
+  text-decoration: none;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  transition: color 0.2s, padding-left 0.2s;
+}
+.product-links a:hover {
+  color: var(--off-white);
+  padding-left: 0.25rem;
+}
+.product-links a::before {
+  content: '→';
+  color: var(--red);
+  margin-right: 0.45rem;
+}
 .cc-link .arr { color:var(--red); }
 .cc-soon { font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; border:1px solid #333; color:var(--gray-muted); padding:0.2rem 0.5rem; border-radius:2px; display:inline-block; margin-left:0.5rem; }
 
@@ -196,7 +219,7 @@ nav {
   display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;
 }
 .sq-list { display:flex; flex-direction:column; gap:1rem; }
-.sq { border-left:2px solid var(--red); padding:1.1rem 1.5rem; background:rgba(255,255,255,0.025); transition:background 0.2s; }
+.sq { border-left:2px solid var(--red); padding:1.1rem 1.5rem; background:rgba(255,255,255,0.025); transition:background 0.2s; color:var(--off-white); text-decoration:none; display:block; }
 .sq:hover { background:rgba(255,255,255,0.045); }
 .sq p { font-family:'Bebas Neue',sans-serif; font-size:1.05rem; letter-spacing:0.06em; line-height:1.3; }
 .dl { margin-top:2.5rem; padding-top:2rem; border-top:1px solid #222; }
@@ -252,6 +275,7 @@ footer {
   <ul class="nav-links">
     <li><a href="#collections">Collections</a></li>
     <li><a href="#staff">Staff Lounge</a></li>
+    <li><a href="#accessories">Mug</a></li>
     <li><a href="#iytyk">#IYTYK</a></li>
     <li><a href="https://mcisty.creator-spring.com" target="_blank" class="nav-shop">Shop Now</a></li>
   </ul>
@@ -305,26 +329,44 @@ footer {
 
     <div class="cc">
       <span class="cc-num">01</span>
-      <span class="cc-eye">The Dictionary Collection</span>
-      <h3 class="cc-title">French. Spanish.<br>Korean. German.<br>Chinese.</h3>
-      <p class="cc-desc">Every language department has a dictionary. Now it has a hoodie. Five languages. One inside joke. Complete series available now.</p>
-      <a href="https://mcisty.creator-spring.com" target="_blank" class="cc-link">Shop the Collection <span class="arr">&rarr;</span></a>
+      <span class="cc-eye">I Am Not Your Dictionary</span>
+      <h3 class="cc-title">Multilingual<br>Exhaustion<br>Since 2026.</h3>
+      <p class="cc-desc">The language teacher collection: one classroom survival phrase, several languages, zero free translation services.</p>
+      <div class="product-links">
+        <a href="https://mcisty.creator-spring.com/listing/yourdictionary" target="_blank">English Dictionary</a>
+        <a href="https://mcisty.creator-spring.com/listing/PasDictionnaire" target="_blank">French Dictionary</a>
+        <a href="https://mcisty.creator-spring.com/listing/SpanishDict" target="_blank">Spanish Dictionary</a>
+        <a href="https://mcisty.creator-spring.com/listing/MexicanDict" target="_blank">Mexican Spanish Dictionary</a>
+        <a href="https://mcisty.creator-spring.com/listing/GermanDict" target="_blank">German Dictionary</a>
+        <a href="https://mcisty.creator-spring.com/listing/KoreanDict" target="_blank">Korean Dictionary</a>
+        <a href="https://mcisty.creator-spring.com/listing/ChineseDict" target="_blank">Chinese Dictionary</a>
+      </div>
     </div>
 
     <div class="cc">
       <span class="cc-num">02</span>
       <span class="cc-eye">The Report Card Collection</span>
-      <h3 class="cc-title">What Teachers<br>Really Mean.</h3>
-      <p class="cc-desc">Every comment sounds professional. Every teacher knows what it actually means. Wear the translation. More dropping throughout grading season.</p>
-      <a href="https://mcisty.creator-spring.com" target="_blank" class="cc-link">Shop the Collection <span class="arr">&rarr;</span></a>
+      <h3 class="cc-title">What We Typed<br>Versus What<br>We Meant.</h3>
+      <p class="cc-desc">Every comment sounds professional. Every teacher knows what it actually means. Wear the translation.</p>
+      <div class="product-links">
+        <a href="https://mcisty.creator-spring.com/listing/ReportCard1a" target="_blank">Report Card Comment 1A</a>
+        <a href="https://mcisty.creator-spring.com/listing/ReportCard2" target="_blank">Report Card Comment 2</a>
+        <a href="https://mcisty.creator-spring.com/listing/ReportCard3" target="_blank">Report Card Comment 3</a>
+      </div>
     </div>
 
     <div class="cc">
       <span class="cc-num">03</span>
-      <span class="cc-eye">Staff Lounge Wear <span class="cc-soon">Coming Soon</span></span>
+      <span class="cc-eye">Staff Lounge Wear</span>
       <h3 class="cc-title">Professionally<br>Worded Emotional<br>Damage.</h3>
       <p class="cc-desc">Minimalist apparel for conference season, PD days, and the moments when documentation already exists. Black garments. White type. No apologies.</p>
-      <span class="cc-link" style="color:#2a2a2a; cursor:default;">Dropping Soon</span>
+      <div class="product-links">
+        <a href="https://mcisty.creator-spring.com/listing/StaffLounge1" target="_blank">Staff Lounge 1</a>
+        <a href="https://mcisty.creator-spring.com/listing/StaffLounge2" target="_blank">Staff Lounge 2</a>
+        <a href="https://mcisty.creator-spring.com/listing/StaffLounge3" target="_blank">Staff Lounge 3</a>
+        <a href="https://mcisty.creator-spring.com/listing/StaffLounge4" target="_blank">Staff Lounge 4</a>
+        <a href="https://mcisty.creator-spring.com/listing/StaffLounge5" target="_blank">Staff Lounge 5</a>
+      </div>
     </div>
 
   </div>
@@ -340,7 +382,7 @@ footer {
       <p style="color:var(--red); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:2rem;">First Drop &mdash; The Parent Conference Collection</p>
       <p style="color:var(--gray-light); font-size:1rem; line-height:1.85; margin-bottom:1rem;">Institutional language. Veteran exhaustion. Statements that only become funny because they sound like they survived three rounds of district approval.</p>
       <p style="color:var(--gray-light); font-size:1rem; line-height:1.85; margin-bottom:2.5rem;">Small back-neck MCISTY #IYTYK mark. Quiet enough to pass. Specific enough to belong.</p>
-      <a href="https://mcisty.creator-spring.com" target="_blank" class="btn btn-red">Notify Me When It Drops</a>
+      <a href="#collections" class="btn btn-red">Shop Staff Lounge Wear</a>
       <div class="dl">
         <h4>Design Language</h4>
         <div class="dl-pills">
@@ -353,11 +395,11 @@ footer {
       </div>
     </div>
     <div class="sq-list">
-      <div class="sq"><p>Further parental communication is unnecessary.</p></div>
-      <div class="sq"><p>Academic outcomes remain student-dependent.</p></div>
-      <div class="sq"><p>Tell your parents there's nothing they can do about your grade.</p></div>
-      <div class="sq"><p>I can explain it again. I can't understand it for you.</p></div>
-      <div class="sq"><p>Due dates are not decorative.</p></div>
+      <a class="sq" href="https://mcisty.creator-spring.com/listing/StaffLounge1" target="_blank"><p>Further parental communication is unnecessary.</p></a>
+      <a class="sq" href="https://mcisty.creator-spring.com/listing/StaffLounge2" target="_blank"><p>Academic outcomes remain student-dependent.</p></a>
+      <a class="sq" href="https://mcisty.creator-spring.com/listing/StaffLounge3" target="_blank"><p>Tell your parents there's nothing they can do about your grade.</p></a>
+      <a class="sq" href="https://mcisty.creator-spring.com/listing/StaffLounge4" target="_blank"><p>I can explain it again. I can't understand it for you.</p></a>
+      <a class="sq" href="https://mcisty.creator-spring.com/listing/StaffLounge5" target="_blank"><p>Due dates are not decorative.</p></a>
     </div>
   </div>
 </div>
@@ -370,6 +412,29 @@ footer {
   <div class="ph-cell"><img src="photo4.jpg" alt="Korean Dictionary — MCISTY"></div>
   <div class="ph-cell"><img src="photo5.jpg" alt="Spanish Dictionary — MCISTY"></div>
   <div class="ph-cell"><img src="photo6.jpg" alt="French Dictionary — MCISTY"></div>
+</div>
+
+<hr class="red-rule">
+
+
+<div class="coll-wrap" id="accessories">
+  <div class="sec-header">
+    <div>
+      <p class="eyebrow">Accessories</p>
+      <h2 class="sec-title">Signature Mug</h2>
+    </div>
+    <a href="https://mcisty.creator-spring.com/listing/McistyBBMug" target="_blank" class="btn btn-red">Shop the Mug &rarr;</a>
+  </div>
+  <div class="statement" style="padding:0; border-bottom:none; grid-template-columns:1fr 1.3fr;">
+    <div class="st-left">
+      <h2>Friend-<br>Sips<br>Optional.</h2>
+    </div>
+    <div class="st-right">
+      <p>The MCISTY signature mug brings the same staff-lounge logic to the only professional development tool teachers actually trust: coffee.</p>
+      <p><strong>Supporting inclusion, friendship, and belonging.</strong></p>
+      <a href="https://mcisty.creator-spring.com/listing/McistyBBMug" target="_blank" class="cc-link">View the Signature Mug <span class="arr">&rarr;</span></a>
+    </div>
+  </div>
 </div>
 
 <hr class="red-rule">

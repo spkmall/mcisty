@@ -196,9 +196,10 @@ nav {
   display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;
 }
 .sq-list { display:flex; flex-direction:column; gap:1rem; }
+.sq-list a { text-decoration:none; color: inherit; }
 .sq { border-left:2px solid var(--red); padding:1.1rem 1.5rem; background:rgba(255,255,255,0.025); transition:background 0.2s; }
 .sq:hover { background:rgba(255,255,255,0.045); }
-.sq p { font-family:'Bebas Neue',sans-serif; font-size:1.05rem; letter-spacing:0.06em; line-height:1.3; }
+.sq p { font-family:'Bebas Neue',sans-serif; font-size:1.05rem; letter-spacing:0.06em; line-height:1.3; color: var(--off-white); }
 .dl { margin-top:2.5rem; padding-top:2rem; border-top:1px solid #222; }
 .dl h4 { font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gray-muted); margin-bottom:1rem; }
 .dl-pills { display:flex; flex-wrap:wrap; gap:0.5rem; }
@@ -265,7 +266,7 @@ footer {
     <p class="hero-sub"><strong>Teacher humor that finally says it out loud.</strong></p>
     <p class="hero-tags">#MCISTY &nbsp;&bull;&nbsp; #IYTYK</p>
     <div class="hero-btns">
-      <a href="#collections" class="btn btn-red">Shop the Collections</a>
+      <a href="#collections" class="btn btn-red">Start Your Own Collection</a>
       <a href="#staff" class="btn btn-out">Enter the Staff Lounge</a>
     </div>
   </div>
@@ -334,10 +335,16 @@ footer {
 
     <div class="cc">
       <span class="cc-num">03</span>
-      <span class="cc-eye">Staff Lounge Wear <span class="cc-soon">Coming Soon</span></span>
+      <span class="cc-eye">Staff Lounge Wear</span>
       <h3 class="cc-title">Professionally<br>Worded Emotional<br>Damage.</h3>
       <p class="cc-desc">Minimalist apparel for conference season, PD days, and the moments when documentation already exists. Black garments. White type. No apologies.</p>
-      <span class="cc-link" style="color:#2a2a2a; cursor:default;">Dropping Soon</span>
+      <div style="display:flex; flex-direction:column; gap:0.4rem; margin-top:0.5rem;">
+        <a href="https://mcisty.creator-spring.com/listing/StaffLounge1" target="_blank" class="cc-link">Further Parental Communication <span class="arr">&rarr;</span></a>
+        <a href="https://mcisty.creator-spring.com/listing/StaffLounge2" target="_blank" class="cc-link">Due Dates Are Not Decorative <span class="arr">&rarr;</span></a>
+        <a href="https://mcisty.creator-spring.com/listing/StaffLounge3" target="_blank" class="cc-link">Academic Outcomes <span class="arr">&rarr;</span></a>
+        <a href="https://mcisty.creator-spring.com/listing/StaffLounge4" target="_blank" class="cc-link">Tell Your Parents <span class="arr">&rarr;</span></a>
+        <a href="https://mcisty.creator-spring.com/listing/StaffLounge5" target="_blank" class="cc-link">I Can Explain It Again <span class="arr">&rarr;</span></a>
+      </div>
     </div>
 
   </div>

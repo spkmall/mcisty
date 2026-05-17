@@ -249,11 +249,17 @@ footer {
 <body>
 
 <nav>
-  <a href="https://instagram.com/mcisty.shop" target="_blank" class="nav-wordmark"><img src="logo.png" alt="MCISTY" style="height:48px; width:48px; object-fit:contain; vertical-align:middle;"></a>
-<a href="https://instagram.com/mcisty.shop" target="_blank" style="font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gray-light); text-decoration:none; margin-left:0.8rem; transition:color 0.2s;" onmouseover="this.style.color='#f0ede6'" onmouseout="this.style.color='#888'">Follow us on Instagram</a>
+  <div style="display:flex; align-items:center; gap:0.8rem;">
+    <a href="https://instagram.com/mcisty.shop" target="_blank" title="Follow @mcisty.shop on Instagram" style="display:flex; align-items:center;">
+      <img src="logo.png" alt="MCISTY" style="height:44px; width:44px; object-fit:contain; vertical-align:middle;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+      <span style="display:none; font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:0.12em; color:var(--off-white);">MCISTY</span>
+    </a>
+    <a href="https://instagram.com/mcisty.shop" target="_blank" style="font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gray-light); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#f0ede6'" onmouseout="this.style.color='#888'">Follow us on Instagram</a>
+  </div>
   <ul class="nav-links">
     <li><a href="#collections">Collections</a></li>
     <li><a href="#staff">Staff Lounge</a></li>
+    <li><a href="#accessories">Mug</a></li>
     <li><a href="#iytyk">#IYTYK</a></li>
     <li><a href="https://mcisty.creator-spring.com" target="_blank" class="nav-shop">Shop Now</a></li>
   </ul>
@@ -307,9 +313,9 @@ footer {
 
     <div class="cc">
       <span class="cc-num">01</span>
-      <span class="cc-eye">The Dictionary Collection</span>
-      <h3 class="cc-title">French. Spanish.<br>Korean. German.<br>Chinese.</h3>
-      <p class="cc-desc">Every language department has a dictionary. Now it has a hoodie. Seven languages. One inside joke. Complete series available now.</p>
+      <span class="cc-eye">I Am Not Your Dictionary</span>
+      <h3 class="cc-title">Multilingual<br>Exhaustion<br>Since 2026.</h3>
+      <p class="cc-desc">The language teacher collection: one classroom survival phrase, several languages, zero free translation services.</p>
       <div style="display:flex; flex-direction:column; gap:0.4rem; margin-top:0.5rem;">
         <a href="https://mcisty.creator-spring.com/listing/PasDictionnaire" target="_blank" class="cc-link">French <span class="arr">&rarr;</span></a>
         <a href="https://mcisty.creator-spring.com/listing/yourdictionary" target="_blank" class="cc-link">English <span class="arr">&rarr;</span></a>
@@ -324,7 +330,7 @@ footer {
     <div class="cc">
       <span class="cc-num">02</span>
       <span class="cc-eye">The Report Card Collection</span>
-      <h3 class="cc-title">What Teachers<br>Really Mean.</h3>
+      <h3 class="cc-title">What We Typed<br>Versus What<br>We Meant.</h3>
       <p class="cc-desc">Every comment sounds professional. Every teacher knows what it actually means. Wear the translation. More dropping throughout grading season.</p>
       <div style="display:flex; flex-direction:column; gap:0.4rem; margin-top:0.5rem;">
         <a href="https://mcisty.creator-spring.com/listing/ReportCard1a" target="_blank" class="cc-link">Report Card Comments 1 <span class="arr">&rarr;</span></a>
@@ -424,6 +430,24 @@ footer {
   <div class="ph-cell"><img src="photo7.jpg" alt="Report Card Collection — MCISTY"></div>
   <div class="ph-cell"><img src="photo8.jpg" alt="Report Card Collection — MCISTY"></div>
   <div class="ph-cell"><img src="photo9.jpg" alt="Report Card Collection — MCISTY"></div>
+</div>
+
+<!-- MUG SECTION -->
+<div style="max-width:1100px; margin:0 auto; padding:6rem 3rem; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; border-top:1px solid #1e1e1e;" id="accessories">
+  <div>
+    <p class="eyebrow">Accessories</p>
+    <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,5vw,4rem); line-height:1; margin-bottom:1.5rem;">Friend-sips<br>Optional.</h2>
+    <p style="color:var(--gray-light); font-size:1rem; line-height:1.85; margin-bottom:1rem;">The MCISTY signature mug brings the same staff-lounge logic to the only professional development tool teachers actually trust: coffee.</p>
+    <p style="color:var(--gray-light); font-size:1rem; line-height:1.85; margin-bottom:2.5rem;">Supporting inclusion, friendship, and belonging.</p>
+    <a href="https://mcisty.creator-spring.com/listing/McistyBBMug" target="_blank" class="btn btn-red">Shop the Mug</a>
+  </div>
+  <div style="display:flex; align-items:center; justify-content:center;">
+    <a href="https://mcisty.creator-spring.com/listing/McistyBBMug" target="_blank" style="font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gray-light); text-decoration:none; border:1px solid #333; padding:2rem 3rem; text-align:center; transition:all 0.2s; display:block;">
+      <span style="font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--off-white); display:block; margin-bottom:0.5rem;">MCISTY</span>
+      Signature Mug<br>
+      <span style="color:var(--red); margin-top:0.5rem; display:block;">View &rarr;</span>
+    </a>
+  </div>
 </div>
 
 <hr class="red-rule">

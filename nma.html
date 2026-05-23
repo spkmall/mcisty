@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not My Alpha — MCISTY Counselor Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --red: #CC0000;
+  --black: #080808;
+  --off-white: #f0ede6;
+  --gray-dark: #111;
+  --gray-mid: #1c1c1c;
+  --gray-muted: #555;
+  --gray-light: #888;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--off-white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 3rem;
+  background: rgba(8,8,8,0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #1e1e1e;
+}
+.nav-left { display: flex; align-items: center; gap: 0.8rem; }
+.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.12em; color: var(--off-white); text-decoration: none; }
+.nav-logo em { color: var(--red); font-style: normal; }
+.nav-collection { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray-muted); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--gray-light); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--off-white); }
+.nav-shop { background: var(--red) !important; color: var(--off-white) !important; padding: 0.45rem 1.1rem; border-radius: 2px; }
+.nav-shop:hover { background: #a80000 !important; }
+
+/* HERO */
+.hero-banner {
+  width: 100%;
+  margin-top: 72px;
+  overflow: hidden;
+  border-bottom: 3px solid var(--red);
+}
+.hero-banner img {
+  width: 100%;
+  display: block;
+  filter: brightness(0.95) contrast(1.05);
+}
+
+/* INTRO */
+.intro {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 6rem 3rem;
+  text-align: center;
+  border-bottom: 1px solid #1e1e1e;
+}
+.collection-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+.intro h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.9;
+  color: var(--off-white);
+  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
+}
+.intro-tagline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--red);
+  letter-spacing: 0.08em;
+  margin-bottom: 3rem;
+}
+.intro-body {
+  color: var(--gray-light);
+  font-size: 1rem;
+  line-height: 1.95;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.intro-body strong { color: var(--off-white); font-weight: 500; }
+.intro-distinction {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  color: var(--off-white);
+  letter-spacing: 0.06em;
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+}
+.intro-distinction em { color: var(--red); font-style: normal; }
+.dedication {
+  color: var(--gray-light);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+.tissue-line {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-muted);
+  margin-top: 2rem;
+}
+
+/* COLLECTION */
+.collection-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 3rem;
+}
+.collection-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.collection-header h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: var(--off-white);
+  margin-bottom: 0.5rem;
+}
+.collection-header p {
+  color: var(--gray-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.shirts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #1e1e1e;
+  border: 1px solid #1e1e1e;
+}
+.shirt-card {
+  background: var(--gray-dark);
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s;
+  text-decoration: none;
+  color: inherit;
+}
+.shirt-card::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 3px; height: 0;
+  background: var(--red);
+  transition: height 0.35s cubic-bezier(.22,1,.36,1);
+}
+.shirt-card:hover { background: #161616; }
+.shirt-card:hover::after { height: 100%; }
+.shirt-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: #1e1e1e;
+  line-height: 1;
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+  transition: color 0.25s;
+}
+.shirt-card:hover .shirt-number { color: #242424; }
+.shirt-statement {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.1;
+  color: var(--off-white);
+  flex: 1;
+}
+.shirt-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  transition: gap 0.2s, color 0.2s;
+  margin-top: 0.5rem;
+}
+.shirt-card:hover .shirt-link { gap: 0.7rem; color: var(--off-white); }
+.shirt-link .arr { color: var(--red); }
+
+/* BADGE */
+.badge-section {
+  text-align: center;
+  padding: 5rem 2rem;
+  border-top: 1px solid #1e1e1e;
+  background: var(--gray-dark);
+}
+.badge-section img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 2rem;
+}
+.badge-hashtags {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.badge-hashtag {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gray-muted);
+}
+
+/* WE SEE YOU */
+.we-see-you {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 5rem 3rem;
+  text-align: center;
+  border-top: 1px solid #1e1e1e;
+}
+.we-see-you p {
+  color: var(--gray-light);
+  font-size: 1rem;
+  line-height: 1.95;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+.we-see-you .closer {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  color: var(--off-white);
+  letter-spacing: 0.1em;
+}
+.we-see-you .closer em { color: var(--red); font-style: normal; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid #1e1e1e;
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.f-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; color: var(--off-white); text-decoration: none; }
+.f-logo em { color: var(--red); font-style: normal; }
+.f-links { display: flex; gap: 1.5rem; }
+.f-link { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-muted); text-decoration: none; transition: color 0.2s; }
+.f-link:hover { color: var(--off-white); }
+.f-copy { font-size: 0.68rem; color: #2e2e2e; }
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.btn-red { background: var(--red); color: var(--off-white); border: 1px solid var(--red); }
+.btn-red:hover { background: #a80000; border-color: #a80000; }
+.btn-out { background: transparent; color: var(--off-white); border: 1px solid #333; }
+.btn-out:hover { border-color: #666; }
+
+.red-rule { width: 100%; height: 3px; background: var(--red); border: none; }
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .shirts-grid { grid-template-columns: 1fr; }
+  .collection-wrap { padding: 4rem 1.5rem; }
+  .intro { padding: 4rem 1.5rem; }
+  footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="index.html" class="nav-logo">MC<em>I</em>STY</a>
+    <span class="nav-collection">/ Not My Alpha</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="https://instagram.com/mcisty.shop" target="_blank">Instagram</a></li>
+    <li><a href="https://mcisty.creator-spring.com" target="_blank" class="nav-shop">Shop Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero-banner">
+  <img src="nma_hero.jpg" alt="Not My Alpha — MCISTY Counselor Collection. Calm Voice. Catastrophic Information.">
+</div>
+
+<hr class="red-rule">
+
+<!-- INTRO -->
+<div class="intro">
+  <span class="collection-label">#NMA by MCISTY</span>
+  <h1>Not My<br>Alpha.</h1>
+  <p class="intro-tagline">Calm Voice. Catastrophic Information.</p>
+
+  <p class="intro-body">
+    Welcome to <strong>#NMA — Not My Alpha.</strong> A special branch of MCISTY dedicated to the school counselors balancing transcripts, schedules, recommendation letters, graduation checks, crises, calm voices under pressure, and the occasional teacher who needs that special friend's shoulder to cry on.
+  </p>
+  <p class="intro-body">
+    You know who you are, Sis.
+  </p>
+
+  <div class="intro-distinction">
+    If <em>#PWED</em> is Professionally Worded Emotional Damage,<br>
+    then <em>#NMA</em> is Professionally Contained Emotional Damage.
+  </div>
+
+  <p class="dedication">
+    This collection is dedicated to the counselors who absorb inward so everyone else can keep moving forward. Or venting outward. Hey, we should put that on a shirt.
+  </p>
+
+  <p class="intro-body">
+    We're starting with four designs, but we have a feeling your offices are full of material.
+  </p>
+
+  <p class="intro-body" style="margin-top:1rem;">
+    If you have ideas, follow us on Instagram and let us know.
+  </p>
+
+  <p class="tissue-line">May your tissue supplies never run dry.</p>
+</div>
+
+<!-- COLLECTION -->
+<div class="collection-wrap" id="collection">
+  <div class="collection-header">
+    <h2>The First Drop</h2>
+    <p>Four statements. One truth. All of it professionally contained.</p>
+  </div>
+
+  <div class="shirts-grid">
+
+    <a href="https://mcisty.creator-spring.com/listing/Counselor4" target="_blank" class="shirt-card">
+      <span class="shirt-number">01</span>
+      <p class="shirt-statement">I Have Read Your File.</p>
+      <span class="shirt-link">Shop This Shirt <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a href="https://mcisty.creator-spring.com/listing/Counselor5" target="_blank" class="shirt-card">
+      <span class="shirt-number">02</span>
+      <p class="shirt-statement">I Saw This Coming Three Semesters Ago.</p>
+      <span class="shirt-link">Shop This Shirt <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a href="https://mcisty.creator-spring.com/listing/Counselor3" target="_blank" class="shirt-card">
+      <span class="shirt-number">03</span>
+      <p class="shirt-statement">I Have 400 Students and 20 Minutes.</p>
+      <span class="shirt-link">Shop This Shirt <span class="arr">&rarr;</span></span>
+    </a>
+
+    <a href="https://mcisty.creator-spring.com/listing/Counselor1" target="_blank" class="shirt-card">
+      <span class="shirt-number">04</span>
+      <p class="shirt-statement">Not My Alpha.</p>
+      <span class="shirt-link">Shop This Shirt <span class="arr">&rarr;</span></span>
+    </a>
+
+  </div>
+
+  <div style="text-align:center; margin-top:3rem;">
+    <a href="https://mcisty.creator-spring.com" target="_blank" class="btn btn-out">View All MCISTY Collections &rarr;</a>
+  </div>
+</div>
+
+<hr class="red-rule">
+
+<!-- WE SEE YOU -->
+<div class="we-see-you">
+  <p>To the counselors who see it coming, handle it all, and somehow still keep showing up with compassion and a sense of humor.</p>
+  <p class="closer">We <em>See</em> You.</p>
+</div>
+
+<!-- BADGE -->
+<div class="badge-section">
+  <img src="NMA_BADGE_OFFICIAL.png" alt="MCISTY Not My Alpha Badge">
+  <div class="badge-hashtags">
+    <span class="badge-hashtag">#MCISTY</span>
+    <span class="badge-hashtag">#IYTYK</span>
+    <span class="badge-hashtag">#PWED</span>
+    <span class="badge-hashtag">#NMA</span>
+    <span class="badge-hashtag">#VUE</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="f-logo">MC<em>I</em>STY</a>
+  <div class="f-links">
+    <a href="index.html" class="f-link">Home</a>
+    <a href="https://instagram.com/mcisty.shop" target="_blank" class="f-link">Instagram</a>
+    <a href="https://mcisty.creator-spring.com" target="_blank" class="f-link">Shop</a>
+    <span class="f-link">#NMA</span>
+    <span class="f-link">#MCISTY</span>
+  </div>
+  <p class="f-copy">&copy; 2026 MCISTY. Calm Voice. Catastrophic Information.</p>
+</footer>
+
+</body>
+</html>

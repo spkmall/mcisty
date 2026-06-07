@@ -243,10 +243,15 @@ footer {
   .photo-strip { grid-template-columns:repeat(2,1fr); }
   .coll-wrap { padding:5rem 1.5rem; }
   footer { padding:2rem 1.5rem; flex-direction:column; align-items:flex-start; }
+  #social-grid { grid-template-columns:1fr !important; }
 }
 </style>
+<script src="https://elfsightcdn.com/platform.js" async></script>
 </head>
 <body>
+
+<!-- Elfsight Announcement Bar -->
+<div class="elfsight-app-a6b1e771-ee54-424e-bddc-0a06d467d4f2" data-elfsight-app-lazy></div>
 
 <nav>
   <div style="display:flex; align-items:center; gap:0.8rem;">
@@ -368,6 +373,23 @@ footer {
         <a href="https://mcisty.creator-spring.com/listing/Counselor3" target="_blank" class="cc-link">I Have 400 Students and 20 Minutes <span class="arr">&rarr;</span></a>
         <a href="https://mcisty.creator-spring.com/listing/Counselor1" target="_blank" class="cc-link">Not My Alpha <span class="arr">&rarr;</span></a>
         <a href="nma.html" target="_blank" class="cc-link" style="color:var(--red); margin-top:0.5rem;">Visit the NMA Collection Page <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+
+    <div style="grid-column: 1 / -1; width:100%; overflow:hidden; max-height:480px; border-radius:2px;">
+      <img src="June_8.png" alt="Admin Never Calls When It's Something Good — MCISTY #IYTYK Collection" style="width:100%; object-fit:cover; object-position:center top; display:block; filter:brightness(0.9) contrast(1.05); transition:filter 0.4s;">
+    </div>
+
+    <div class="cc" style="grid-column: 1 / -1;">
+      <span class="cc-num">05</span>
+      <span class="cc-eye">#IYTYK Collection</span>
+      <h3 class="cc-title">If You Teach,<br>You Know.</h3>
+      <p class="cc-desc">Different schools. Different districts. Different subjects. Same conversations. The #IYTYK collection is for the teachers who already understand — no explanation required, no translation provided.</p>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:0.4rem 2rem; margin-top:0.5rem;">
+        <a href="https://mcisty.creator-spring.com/listing/IYTYK1" target="_blank" class="cc-link">Admin Never Calls When It's Something Good <span class="arr">&rarr;</span></a>
+        <a href="https://mcisty.creator-spring.com/listing/IYTYK2" target="_blank" class="cc-link">First, Show Me Your Credential <span class="arr">&rarr;</span></a>
+        <a href="https://mcisty.creator-spring.com/listing/IYTYK3" target="_blank" class="cc-link">Lose Your Prep. Then We Talk. <span class="arr">&rarr;</span></a>
+        <a href="https://mcisty.creator-spring.com/listing/IYTYK4" target="_blank" class="cc-link">I Teach For Free. They Pay Me To Grade. <span class="arr">&rarr;</span></a>
       </div>
     </div>
 
@@ -531,11 +553,34 @@ footer {
   </div>
 </div>
 
-<!-- INSTAGRAM CTA -->
-<div style="text-align:center; padding:4rem 2rem; border-top:1px solid #1e1e1e; background:var(--gray-dark);">
-  <p style="font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--red); margin-bottom:1rem;">You made it this far.</p>
-  <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,5vw,4rem); color:var(--off-white); line-height:1; margin-bottom:1.5rem;">You definitely teach.</h2>
-  <a href="https://instagram.com/mcisty.shop" target="_blank" class="btn btn-red">Follow us on Instagram</a>
+<!-- SOCIAL SECTION -->
+<div style="background:var(--gray-dark); border-top:1px solid #1e1e1e; padding:5rem 2rem;">
+  <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;" id="social-grid">
+
+    <!-- Instagram CTA -->
+    <div style="text-align:center;">
+      <p style="font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--red); margin-bottom:1rem;">Find Us On Instagram</p>
+      <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,4vw,3rem); color:var(--off-white); line-height:1; margin-bottom:1rem;">You made it this far.</h2>
+      <p style="color:var(--gray-light); font-size:0.95rem; line-height:1.8; margin-bottom:2rem;">You definitely teach.</p>
+      <a href="https://instagram.com/mcisty.shop" target="_blank" class="btn btn-red">Follow @mcisty.shop</a>
+    </div>
+
+    <!-- Facebook Page Plugin -->
+    <div style="text-align:center;">
+      <p style="font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--red); margin-bottom:1rem;">Find Us On Facebook</p>
+      <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,4vw,3rem); color:var(--off-white); line-height:1; margin-bottom:1.5rem;">Join the Community.</h2>
+      <a href="https://www.facebook.com/mcisty.shop" target="_blank" class="btn btn-red">Follow on Facebook</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ELFSIGHT INSTAGRAM FEED -->
+<div style="background:var(--black); border-top:1px solid #1e1e1e; padding:4rem 2rem;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <p style="font-size:0.68rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--red); text-align:center; margin-bottom:2rem;">Latest From @mcisty.shop</p>
+    <div class="elfsight-app-589f94b0-40ee-4912-b557-a6bbf55b0cc7" data-elfsight-app-lazy></div>
+  </div>
 </div>
 
 <footer>

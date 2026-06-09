@@ -22,8 +22,8 @@ body {
   background: var(--black);
   color: var(--off-white);
   font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 1.7;
   overflow-x: hidden;
 }
 
@@ -51,7 +51,7 @@ nav {
 .nav-links a {
   color: var(--gray-light);
   text-decoration: none;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   transition: color 0.2s;
@@ -82,7 +82,7 @@ nav {
 }
 .hero-content { position: relative; z-index: 1; }
 .hero-flag {
-  font-size: 0.68rem;
+  font-size: 0.85rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--red);
@@ -161,7 +161,7 @@ nav {
   display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start;
   border-bottom: 1px solid #1e1e1e;
 }
-.eyebrow { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-bottom: 0.8rem; }
+.eyebrow { font-size: 0.82rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-bottom: 0.8rem; }
 .st-left h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 5vw, 4.5rem); line-height: 0.95; }
 .st-right p { color: var(--gray-light); font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.2rem; }
 .st-right p strong { color: var(--off-white); font-weight: 500; }
@@ -180,10 +180,10 @@ nav {
 .cc:hover::after { height: 100%; }
 .cc-num { font-family:'Bebas Neue',sans-serif; font-size:5rem; color:#1e1e1e; line-height:1; position:absolute; top:1rem; right:1.5rem; transition: color 0.25s; }
 .cc:hover .cc-num { color:#242424; }
-.cc-eye { font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--red); }
-.cc-title { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; line-height:1.05; }
-.cc-desc { font-size:0.9rem; color:var(--gray-light); line-height:1.75; flex:1; }
-.cc-link { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; text-decoration:none; color:var(--off-white); transition: gap 0.2s; margin-top:0.5rem; }
+.cc-eye { font-size:0.75rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--red); }
+.cc-title { font-family:'Bebas Neue',sans-serif; font-size:2.2rem; line-height:1.05; }
+.cc-desc { font-size:1rem; color:var(--gray-light); line-height:1.85; flex:1; }
+.cc-link { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.85rem; letter-spacing:0.16em; text-transform:uppercase; text-decoration:none; color:var(--off-white); transition: gap 0.2s; margin-top:0.5rem; }
 .cc-link:hover { gap:0.7rem; }
 .cc-link .arr { color:var(--red); }
 .cc-soon { font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; border:1px solid #333; color:var(--gray-muted); padding:0.2rem 0.5rem; border-radius:2px; display:inline-block; margin-left:0.5rem; }
@@ -223,13 +223,13 @@ footer {
   border-top:1px solid #1e1e1e; padding:3rem;
   display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;
 }
-.f-logo { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:0.1em; display:block; margin-bottom:0.4rem; }
+.f-logo { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:0.1em; display:block; margin-bottom:0.4rem; }
 .f-logo em { color:var(--red); font-style:normal; }
-.f-sub { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gray-muted); }
+.f-sub { font-size:0.8rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gray-muted); }
 .f-tags { display:flex; gap:1.5rem; flex-wrap:wrap; }
-.f-tag { font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gray-muted); text-decoration:none; transition:color 0.2s; }
+.f-tag { font-size:0.8rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gray-muted); text-decoration:none; transition:color 0.2s; }
 .f-tag:hover { color:var(--off-white); }
-.f-copy { font-size:0.68rem; color:#2e2e2e; letter-spacing:0.06em; }
+.f-copy { font-size:0.78rem; color:#2e2e2e; letter-spacing:0.06em; }
 
 @keyframes up { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
 @keyframes pulse { 0%,100% { opacity:0.3; } 50% { opacity:0.9; } }
@@ -278,6 +278,7 @@ footer {
     <p class="hero-flag">Educational Humor &nbsp;&bull;&nbsp; Humorous Teacher Apparel</p>
     <h1 class="hero-name">MC<em>I</em>STY</h1>
     <p class="hero-sub"><strong>Teacher humor that finally says it out loud.</strong></p>
+  <p style="margin-top:1rem; font-size:0.82rem; letter-spacing:0.18em; color:var(--gray-muted); opacity:0; animation: up 0.9s 0.6s cubic-bezier(.22,1,.36,1) forwards;">Pronounced: <span style="color:var(--gray-light);">Muh-Kiss-Tee</span> &nbsp;&bull;&nbsp; Yes, it means something.</p>
     <p class="hero-tags">#MCISTY &nbsp;&bull;&nbsp; #IYTYK</p>
     <div class="hero-btns">
       <a href="#collections" class="btn btn-red">Start Your Own Collection</a>

@@ -39,10 +39,11 @@ nav {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #1e1e1e;
 }
-.nav-left { display: flex; align-items: center; gap: 0.8rem; }
-.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.12em; color: var(--off-white); text-decoration: none; }
-.nav-logo em { color: var(--red); font-style: normal; }
-.nav-collection { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray-muted); }
+.breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.breadcrumb .mcisty { color: var(--off-white); text-decoration: none; }
+.breadcrumb .mcisty em { color: var(--red); font-style: normal; }
+.breadcrumb .divider { color: var(--red); }
+.breadcrumb .current { color: var(--gray-muted); }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a { color: var(--gray-light); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.2s; }
 .nav-links a:hover { color: var(--off-white); }
@@ -309,9 +310,10 @@ footer {
 <body>
 
 <nav>
-  <div class="nav-left">
-    <a href="index.html" class="nav-logo">MC<em>I</em>STY</a>
-    <span class="nav-collection">/ Not My Alpha</span>
+  <div class="breadcrumb">
+    <a href="index.html" class="mcisty">MC<em>I</em>STY</a>
+    <span class="divider">/</span>
+    <span class="current">Not My Alpha</span>
   </div>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -411,7 +413,7 @@ footer {
 
 <!-- BADGE -->
 <div class="badge-section">
-  <img src="NMA_BADGE_OFFICIAL.png" alt="MCISTY Not My Alpha Badge">
+  <img src="nma-badge.png" alt="MCISTY Not My Alpha Badge">
   <div class="badge-hashtags">
     <span class="badge-hashtag">#MCISTY</span>
     <span class="badge-hashtag">#IYTYK</span>

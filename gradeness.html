@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradeness — Turning Assessment into Alchemy</title>
+    <meta name="description" content="The editorial and educational arm of MCISTY. Written by a working teacher for working educators.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <!--
+        GRADENESS PAGE — SAGE DRAFT v3 — 24 July 2026
+        Modeled on the NMA page pattern (/nma.html) with Gradeness voice and visual identity.
+
+        v3 changes from v2:
+        - Manual Substack thumbnail list REMOVED
+        - Replaced with Elfsight Social Feed widget (Gradeness Socials, RSS-sourced)
+        - Widget auto-pulls new posts as they publish to gradeness.substack.com
+        - Zero manual maintenance per publication
+
+        TODO for Lex during integration:
+        - Verify all image src paths against actual repo filenames
+        - Extract shared CSS to main stylesheet if that is the convention
+        - Confirm font stack matches existing mcisty.com typography
+        - Verify Elfsight widget renders correctly and colors match Gradeness palette
+    -->
+
+    <style>
+        /* =============================
+           GRADENESS DESIGN TOKENS
+           ============================= */
+        :root {
+            --cream: #F5EDD8;
+            --cream-light: #FBF6E7;
+            --navy: #1A2440;
+            --navy-deep: #131B32;
+            --gold: #B49060;
+            --gold-light: #C9A876;
+            --text-dark: #1A2440;
+            --text-light: #F5EDD8;
+
+            --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --font-body: Georgia, 'Times New Roman', serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background: var(--cream);
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =============================
+           BREADCRUMB + NAV
+           ============================= */
+        .top-bar {
+            background: var(--navy);
+            color: var(--text-light);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb .mcisty {
+            color: #f0ede6;
+            text-decoration: none;
+        }
+
+        .breadcrumb .mcisty em {
+            color: #CC0000;
+            font-style: normal;
+        }
+
+        .breadcrumb .divider {
+            color: #CC0000;
+        }
+
+        .breadcrumb .current {
+            color: #555;
+        }
+
+        .top-nav {
+            display: flex;
+            gap: 2rem;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .top-nav a {
+            transition: color 0.2s;
+        }
+
+        .top-nav a:hover {
+            color: var(--gold);
+        }
+
+        /* =============================
+           HERO
+           ============================= */
+        .hero {
+            background: var(--cream);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-lockup {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-lockup img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* =============================
+           FOUR PILLARS STRIP
+           ============================= */
+        .pillars {
+            background: var(--navy);
+            padding: 3rem 2rem;
+            color: var(--text-light);
+        }
+
+        .pillars-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .pillar {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .pillar-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            color: var(--gold);
+        }
+
+        .pillar-content {
+            flex: 1;
+        }
+
+        .pillar-title {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-body {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--cream);
+        }
+
+        /* =============================
+           SUBSTACK — ELFSIGHT WIDGET CONTAINER
+           ============================= */
+        .substack {
+            background: var(--cream);
+            padding: 5rem 2rem;
+        }
+
+        .substack-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-eyebrow {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .substack-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--navy);
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .substack-intro {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--navy);
+            opacity: 0.8;
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 3rem;
+        }
+
+        .substack-widget-container {
+            /* Elfsight widget lives here. Widget handles its own layout. */
+            /* If widget renders too wide or needs a max width, adjust max-width above. */
+        }
+
+        .archive-link {
+            display: block;
+            margin-top: 3rem;
+            text-align: center;
+            font-family: var(--font-body);
+            font-style: italic;
+            color: var(--navy);
+            opacity: 0.75;
+        }
+
+        .archive-link:hover {
+            opacity: 1;
+        }
+
+        /* =============================
+           JOURNAL PRODUCTS GRID
+           ============================= */
+        .products {
+            background: var(--cream-light);
+            padding: 5rem 2rem;
+        }
+
+        .products-header {
+            max-width: 720px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .products-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--navy);
+            font-weight: 400;
+        }
+
+        .products-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .product-card {
+            background: var(--cream);
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(180, 144, 96, 0.2);
+        }
+
+        .product-cover {
+            width: 100%;
+            max-width: 240px;
+            margin: 0 auto 1.5rem;
+            /* TODO: Volume covers - Lex to add actual image assets */
+        }
+
+        .product-name {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .product-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--navy);
+            color: var(--navy);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        .product-button:hover {
+            background: var(--navy);
+            color: var(--gold);
+        }
+
+        .products-more {
+            max-width: 720px;
+            margin: 3rem auto 0;
+            text-align: center;
+            font-family: var(--font-body);
+            font-style: italic;
+        }
+
+        .products-more a {
+            color: var(--navy);
+            border-bottom: 1px solid var(--gold);
+        }
+
+        /* =============================
+           ABOUT GRADENESS
+           ============================= */
+        .about {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 5rem 2rem;
+        }
+
+        .about-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .about-eyebrow {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .about-body p {
+            font-family: var(--font-body);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--cream);
+        }
+
+        .about-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =============================
+           DEDICATION + BADGE
+           ============================= */
+        .dedication {
+            background: var(--cream);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .dedication-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .dedication-badge {
+            width: 120px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .dedication-text {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+
+        .dedication-tagline {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .hashtags {
+            margin-top: 3rem;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+        }
+
+        /* =============================
+           FOOTER
+           ============================= */
+        .footer {
+            background: var(--navy-deep);
+            color: var(--cream);
+            padding: 2rem;
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-copyright {
+            opacity: 0.7;
+        }
+
+        /* =============================
+           RESPONSIVE
+           ============================= */
+        @media (max-width: 900px) {
+            .pillars-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .top-nav {
+                gap: 1.25rem;
+                flex-wrap: wrap;
+            }
+
+            .substack-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =============================
+         TOP BAR: BREADCRUMB + NAV
+         ============================= -->
+    <div class="top-bar">
+        <div class="breadcrumb">
+            <a href="index.html" class="mcisty">MC<em>I</em>STY</a>
+            <span class="divider">/</span>
+            <span class="current">Gradeness</span>
+        </div>
+        <nav class="top-nav">
+            <a href="https://mcisty.com/index.html">Home</a>
+            <a href="https://gradeness.substack.com" target="_blank" rel="noopener">Read on Substack</a>
+            <a href="https://teacherstore.io/store/gradeness/" target="_blank" rel="noopener">TeacherStore</a>
+            <a href="https://www.teacherspayteachers.com/store/gradeness" target="_blank" rel="noopener">TPT</a>
+        </nav>
+    </div>
+
+    <!-- =============================
+         HERO
+         ============================= -->
+    <section class="hero">
+        <div class="hero-lockup">
+            <!-- TODO: Verify filename in J:\My Drive\mcisty-site\ - suggested: gradeness-lockup-horizontal.png -->
+            <img src="gradeness-lockup-horizontal.png" alt="Gradeness — Turning Assessment into Alchemy">
+        </div>
+    </section>
+
+    <!-- =============================
+         FOUR PILLARS STRIP
+         ============================= -->
+    <section class="pillars">
+        <div class="pillars-grid">
+            <div class="pillar">
+                <div class="pillar-icon">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="4" width="12" height="12" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="16" y="4" width="12" height="12" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="28" y="4" width="12" height="12" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="4" y="16" width="12" height="12" fill="currentColor"/>
+                        <rect x="16" y="16" width="12" height="12" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="28" y="16" width="12" height="12" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="4" y="28" width="12" height="12" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="16" y="28" width="12" height="12" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="28" y="28" width="12" height="12" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-title">Structure</div>
+                    <div class="pillar-body">Rubrics. Data. Clarity.</div>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-icon">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 32 Q 12 12 22 22 T 38 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    </svg>
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-title">Humanity</div>
+                    <div class="pillar-body">Feedback. Connection. Voice.</div>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-icon">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="22" cy="22" r="3" fill="currentColor"/>
+                        <line x1="22" y1="4" x2="22" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="22" y1="32" x2="22" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="4" y1="22" x2="12" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="32" y1="22" x2="40" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="9" y1="9" x2="14" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="30" y1="30" x2="35" y2="35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="35" y1="9" x2="30" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="14" y1="30" x2="9" y2="35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-title">Transformation</div>
+                    <div class="pillar-body">Turning feedback into impact.</div>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-icon">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 8 L38 8 L38 28 L28 28 L22 36 L22 28 L6 28 Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                        <path d="M22 22 C22 22 16 19 16 15 C16 13 18 12 20 13 C21 13.5 22 15 22 15 C22 15 23 13.5 24 13 C26 12 28 13 28 15 C28 19 22 22 22 22 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-title">The Right Word</div>
+                    <div class="pillar-body">At the right moment changes everything.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================
+         SUBSTACK — ELFSIGHT WIDGET
+         Widget: Gradeness Socials (RSS feed from gradeness.substack.com/feed)
+         Auto-updates as new posts publish. Zero manual maintenance.
+         ============================= -->
+    <section class="substack">
+        <div class="substack-inner">
+            <div class="section-eyebrow">The Publication</div>
+            <h2 class="substack-title">Gradeness on Substack</h2>
+            <p class="substack-intro">A weekly editorial on the daily reality of teaching. New essays post on Thursday mornings.</p>
+
+            <div class="substack-widget-container">
+                <!-- Elfsight Social Feed | Gradeness Socials -->
+                <script src="https://elfsightcdn.com/platform.js" async></script>
+                <div class="elfsight-app-7eb10306-6388-41f1-a566-4b4b57e13c1d" data-elfsight-app-lazy></div>
+            </div>
+
+            <a href="https://gradeness.substack.com" target="_blank" rel="noopener" class="archive-link">
+                Browse the full archive on Substack →
+            </a>
+        </div>
+    </section>
+
+    <!-- =============================
+         JOURNAL PRODUCTS GRID
+         ============================= -->
+    <section class="products">
+        <div class="products-header">
+            <div class="section-eyebrow">Classroom Journals</div>
+            <h2 class="products-title">Prompt Journals for the French Classroom</h2>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <!-- TODO: Volume I cover - Lex to add actual asset from J:\My Drive\mcisty-site\ -->
+                <img src="Cover-Volume-I.png" alt="Gradeness Journal d'écriture Volume I" class="product-cover">
+                <div class="product-name">Journal d'écriture — Volume I</div>
+                <a href="https://www.teacherspayteachers.com/store/gradeness" target="_blank" rel="noopener" class="product-button">
+                    Available on TPT
+                </a>
+            </div>
+            <div class="product-card">
+                <!-- TODO: Volume II cover - Lex to add actual asset from J:\My Drive\mcisty-site\ -->
+                <img src="Cover-Volume-II.png" alt="Gradeness Journal d'écriture Volume II" class="product-cover">
+                <div class="product-name">Journal d'écriture — Volume II</div>
+                <a href="https://www.teacherspayteachers.com/store/gradeness" target="_blank" rel="noopener" class="product-button">
+                    Available on TPT
+                </a>
+            </div>
+        </div>
+        <div class="products-more">
+            More resources at <a href="https://teacherstore.io/store/gradeness/" target="_blank" rel="noopener">TeacherStore.io</a> and <a href="https://www.teacherspayteachers.com/store/gradeness" target="_blank" rel="noopener">Teachers Pay Teachers</a>
+        </div>
+    </section>
+
+    <!-- =============================
+         ABOUT GRADENESS
+         Final locked prose per Notion Copy Deck, 24 July 2026
+         ============================= -->
+    <section class="about">
+        <div class="about-inner">
+            <div class="about-eyebrow">About Gradeness</div>
+            <div class="about-body">
+                <p>Gradeness is the editorial and educational arm of MCISTY. Its charge is to translate the daily reality of teaching into lessons, tools, essays, and workflows that treat teachers as adults.</p>
+                <p>What that looks like in practice: a weekly Substack that names the parts of teaching nobody wants to say out loud. Journal products that respect student and teacher intelligence. AI-facing resources built to help teachers use AI thoughtfully, to sharpen their lessons without replacing their judgment.</p>
+                <p>Gradeness is written by a working teacher for working educators. Every essay, every tool, every workflow is authored, verified, and defended in one voice.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================
+         DEDICATION + BADGE
+         Final locked dedication per Notion Copy Deck, 24 July 2026
+         ============================= -->
+    <section class="dedication">
+        <div class="dedication-inner">
+            <!-- TODO: Verify filename in J:\My Drive\mcisty-site\ - suggested: gradeness-icon.png -->
+            <img src="gradeness-icon.png" alt="Gradeness" class="dedication-badge">
+            <p class="dedication-text">
+                To the teachers who are still doing the work honestly, who still know their students' names, who still write feedback that means something. Gradeness was built for you.
+            </p>
+            <div class="dedication-tagline">Turning Assessment into Alchemy</div>
+            <div class="hashtags">#Gradeness &nbsp;·&nbsp; #MCISTY &nbsp;·&nbsp; #IYTYK</div>
+        </div>
+    </section>
+
+    <!-- =============================
+         FOOTER
+         ============================= -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://mcisty.com/index.html">MC<em>I</em>STY</a>
+            <a href="https://gradeness.substack.com" target="_blank" rel="noopener">Substack</a>
+            <a href="https://teacherstore.io/store/gradeness/" target="_blank" rel="noopener">TeacherStore</a>
+            <a href="https://www.teacherspayteachers.com/store/gradeness" target="_blank" rel="noopener">TPT</a>
+        </div>
+        <div class="footer-copyright">
+            © 2026 MCISTY &nbsp;·&nbsp; Turning Assessment into Alchemy
+        </div>
+    </footer>
+
+</body>
+</html>
